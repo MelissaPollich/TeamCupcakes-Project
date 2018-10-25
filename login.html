@@ -10,11 +10,10 @@
       function validateLogin() {
         var x = document.forms['login']['usernameInput'].value; // Username Check
         var text = '';
-        var test = true;
         if (x == "") {
           text = 'Please enter a username';
           document.getElementById('nameError').innerHTML = text;
-          test = false;
+          return false;
         } else {
           document.getElementById('nameError').innerHTML = text;
         }
@@ -23,11 +22,11 @@
         if (x == "") {
           text = 'Please enter a password';
           document.getElementById('passError').innerHTML = text;
-          test = false;
+          return false;
         } else {
           document.getElementById('passError').innerHTML = text;
         }
-        return test;
+        return true;
       }
     </script>
     <title>Login Screen</title>
@@ -35,7 +34,7 @@
   <body>
 
     <h1 class="text-center">Sign in</h1><br>
-    <form name="login" onsubmit="return validateLogin()">
+    <form name="login" onsubmit="return validateLogin()" action="menu.html">
       <div id="username">
         <strong style="margin-left: 25%;">Username</strong><br>
         <input style="margin-left: 25%; padding: 10px; width: 60%" type="text" class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter username">
@@ -46,7 +45,7 @@
         <input style="margin-left: 25%; padding: 10px; width: 60%" type="text" class="form-control" id="passwordInput" aria-describedby="passwordHelp" placeholder="Enter password">
         <p id="passError" style="color: red; margin-left: 25%"></p>
       </div>
-      <button style="margin: 30px; margin-left: 25%; background-color: blue; color: white; padding: 12px; font-size: 14px; border: none;" type="submit" value="Submit" onclick="validateLogin()" class="btn btn-primary">Login</button>
+      <button style="margin: 30px; margin-left: 25%; background-color: blue; color: white; padding: 12px; font-size: 14px; border: none;" type="submit" value="Submit" class="btn btn-primary">Login</button>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
