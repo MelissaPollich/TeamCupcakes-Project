@@ -10,10 +10,11 @@
       function validateLogin() {
         var x = document.forms['login']['usernameInput'].value; // Username Check
         var text = '';
+        var toRet = true;
         if (x == "") {
           text = 'Please enter a username';
           document.getElementById('nameError').innerHTML = text;
-          return false;
+          toRet = false;
         } else {
           document.getElementById('nameError').innerHTML = text;
         }
@@ -22,11 +23,11 @@
         if (x == "") {
           text = 'Please enter a password';
           document.getElementById('passError').innerHTML = text;
-          return false;
+          toRet = false;
         } else {
-          document.getElementById('passError').innerHTML = text;
+          document.getElementById('passError').innerHTML = '';
         }
-        return true;
+        return toRet;
       }
     </script>
     <title>Login Screen</title>
@@ -53,5 +54,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<script>console.log('test');</script>
