@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="stylesheet" href="login.css">
     
     <title>Login Screen</title>
@@ -21,6 +22,50 @@
     </div>
     <form>
       <button style="margin: 30px; margin-left: 25%; background-color: blue; color: white; padding: 12px; font-size: 14px; border: none;" type="login" class="btn btn-primary">Login</button>
+=======
+    <!--<link rel="stylesheet" href="login.css">-->
+    <script>
+      function validateLogin() {
+        var x = document.forms['login']['usernameInput'].value; // Username Check
+        var text = '';
+        var toRet = true;
+        if (x == "") {
+          text = 'Please enter a username';
+          document.getElementById('nameError').innerHTML = text;
+          toRet = false;
+        } else {
+          document.getElementById('nameError').innerHTML = text;
+        }
+        text = '';
+        x = document.forms['login']['passwordInput'].value;
+        if (x == "") {
+          text = 'Please enter a password';
+          document.getElementById('passError').innerHTML = text;
+          toRet = false;
+        } else {
+          document.getElementById('passError').innerHTML = '';
+        }
+        return toRet;
+      }
+    </script>
+    <title>Login Screen</title>
+  </head>
+  <body>
+
+    <h1 class="text-center">Sign in</h1><br>
+    <form name="login" onsubmit="return validateLogin()" action="menu.html">
+      <div id="username">
+        <strong style="margin-left: 25%;">Username</strong><br>
+        <input style="margin-left: 25%; padding: 10px; width: 60%" type="text" class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter username">
+        <p id="nameError" style="color: red; margin-bottom: 30px; margin-left: 25%"></p>
+      </div>
+      <div id="password">
+        <strong style="margin-left: 25%;">Password</strong><br>
+        <input style="margin-left: 25%; padding: 10px; width: 60%" type="text" class="form-control" id="passwordInput" aria-describedby="passwordHelp" placeholder="Enter password">
+        <p id="passError" style="color: red; margin-left: 25%"></p>
+      </div>
+      <button style="margin: 30px; margin-left: 25%; background-color: blue; color: white; padding: 12px; font-size: 14px; border: none;" type="submit" value="Submit" class="btn btn-primary">Login</button>
+>>>>>>> 95b1c606ae43987ff7ead49f277ca5957d9f9334
     </form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
