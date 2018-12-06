@@ -2,21 +2,32 @@
 <html lang="en">  
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+      var wordsToFind = ['puppy', 'foal', 'spiderling', 'kitten', 'chick', 'tadpole', 'calf', 'fry', 'lamb', 'piglet', 'fawn', 'cub'];
       function checkWord() {
-        var wordsToFind = ['puppy', 'foal', 'spiderling', 'kitten', 'chick', 'tadpole', 'calf', 'fry', 'lamb', 'piglet', 'fawn', 'cub'];
         var userIn = document.forms['userControl']['userGuess'].value;
+        document.forms['userControl']['userGuess'].value="";
+        userIn = userIn.toLowerCase();
         if (wordsToFind.includes(userIn)) {
-          
+          wordsToFind.splice(wordsToFind.indexOf(userIn), 1);
+          document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
+          try {
+            document.getElementById(userIn).style.display="block";
+          }
+          catch {
+
+          }
         }
         return false;
       }
       window.onload = function addInfo(){
         document.getElementById("Username").innerHTML="Example";
         document.getElementById("Score").innerHTML="Total score: "+"0";
+        document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
       }
     </script>
   </head>
@@ -45,64 +56,63 @@
         </ul>
       </div>
     </nav>
-      <div id="l1" class="row justify-content-center">
+      <!-- <div id="l1" class="row center">
         <div class="mx-auto" style="width: 40%">
-          <img src="example-Search.jpg" class="img-responsive" style="width: 100%"> <!--Replace [img] with the wordsearch image-->
+           Replace [img] with the wordsearch image
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div id="row1" class="row justify-content-center">
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+      </div> -->
+    <h1 style="text-align: center;">Baby Animals</h1>
+    <img src="example-Search.jpg" class="img-responsive" style="width: 40%; margin: auto">
+    <div class="container-fluid" style="width: 40%">
+      <div id="row1" class="row">
+        <div id="puppy" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Puppy</p>
         </div>
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+        <div id="foal" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Foal</p>
         </div>
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+        <div id="spiderling" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Spiderling</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="kitten" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Kitten</p>
         </div>     
       </div>
-      <div id="row1" class="row justify-content-center">
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+      <div id="row2" class="row justify-content-center">
+        <div id="chick" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Chick</p>
         </div>
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+        <div id="tadpole" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Tadpole</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="calf" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Calf</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="fry" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Fry</p>
         </div>     
       </div>
-      <div id="row1" class="row justify-content-center">
-        <div class="col-1 bg-info border" hidden style="text-align: center;">
+      <div id="row3" class="row justify-content-center">
+        <div id="lamb" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Lamb</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="piglet" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Piglet</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="fawn" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Fawn</p>
         </div>
-        <div class="col-1 bg-info border" style="text-align: center;">
+        <div id="cub" class="col-sm-3 bg-info border" style="text-align: center; display: none;">
             <p>Cub</p>
-        </div>     
+        </div>
       </div>
     </div>
-    <form id="userControl" onsubmit="checkWork()">
-      <div class="input-group mb-3 mx-auto" style="width: 60%">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Words Remaining: 6</span>
-        </div>
-        <input type="text" class="form-control" placeholder="Guess a word" id="userGuess" aria-label="Username" aria-describedby="basic-addon1">
-        <div class="input-group-append">
-          <button type="submit" class="btn" value="Submit">Test</button>
+    <form id="userControl" onsubmit="return checkWord()">
+      <div class="input-group mb-3 mx-auto" style="width: 60%; margin: auto;">
+        <span class="input-group-addon" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Guess a word" id="userGuess">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default">Guess</button>
         </div>
       </div>
     </form>
