@@ -33,16 +33,18 @@
   </head>
   <body>
     <h1 class="text-center">Create Profile</h1><br>
-    <form name="login" onsubmit="return validateLogin()" action="menu.html">
-      <div>
-        <strong style="margin-left: 25%;">Enter a Username</strong><br>
-        <input style="margin-bottom: 30px; margin-left: 25%; padding: 10px; width: 60%" type="username"class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter Username">
+    <div class="login-page">
+      <div class="form">
+        <form name="login" onsubmit="return validateLogin()" action="menu.html">
+          <strong style="margin-left: 25%;">Enter a Username</strong><br>
+          <input style="margin-bottom: 30px; margin-left: 25%; padding: 10px; width: 60%" type="username"class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter Username">
 
-        <strong style="margin-left: 25%;">Enter a Password</strong><br>
-        <input style="margin-bottom: 30px; margin-left: 25%; padding: 10px; width: 60%" type="username"class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter Password">
+          <strong style="margin-left: 25%;">Enter a Password</strong><br>
+          <input style="margin-bottom: 30px; margin-left: 25%; padding: 10px; width: 60%" type="username"class="form-control" id="usernameInput" aria-describedby="usernameHelp" placeholder="Enter Password">
+          <input style="margin-left: 25%" type="submit" class="btn btn-info" value="Create Profile">
+        </form>
       </div>
-      <input style="margin-left: 25%" type="submit" class="btn btn-info" value="Create Profile">
-    </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
