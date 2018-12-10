@@ -8,12 +8,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
       var wordsToFind = ['eggs', 'bacon', 'butter', 'toast', 'milk', 'juice', 'jelly', 'jam', 'yogurt', 'cereal', 'banana', 'cornflakes', 'muesli', 'marmalade'];
+      var wordsFound = [1,0,1,0,1,0,1,0,1,0,1,0,1,0]; // Binary array from database of words found here. LENGTH 14 ARRAY. Can splice off excess if necessary/easier
       function checkWord() {
         var userIn = document.forms['userControl']['userGuess'].value;
         document.forms['userControl']['userGuess'].value="";
         userIn = userIn.toLowerCase();
         if (wordsToFind.includes(userIn)) {
           wordsToFind.splice(wordsToFind.indexOf(userIn), 1);
+          // Include score code here
           document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
           try {
             document.getElementById(userIn).style.display="block";
@@ -27,6 +29,12 @@
       window.onload = function addInfo(){
         document.getElementById("Username").innerHTML="Example";
         document.getElementById("Score").innerHTML="Total score: "+"0";
+        for (var i = wordsFound.length-1; i >= 0; i--) {
+          if (wordsFound[i]) {
+            document.getElementById(wordsToFind[i]).style.display="block";
+            wordsToFind.splice(i,1);
+          }
+        }
         document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
       }
     </script>
