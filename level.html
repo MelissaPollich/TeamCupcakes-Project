@@ -15,6 +15,7 @@
         userIn = userIn.toLowerCase();
         if (wordsToFind.includes(userIn)) {
           wordsToFind.splice(wordsToFind.indexOf(userIn), 1);
+          // Include score code here
           document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
           try {
             document.getElementById(userIn).style.display="block";
@@ -22,17 +23,35 @@
           catch {
 
           }
+          if (wordsToFind.length == 0) {
+            var allBoxes = document.getElementsByClassName("col-sm-3");
+            for (i = 0; i < allBoxes.length; i++) {
+              allBoxes[i].style.backgroundColor = "#3CB371";
+            }
+            document.getElementById('userGuess').placeholder = 'Complete!';
+            document.getElementById('userGuess').setAttribute("disabled", true);
+            document.getElementById('guessButton').setAttribute("disabled", true);
+          }
         }
         return false;
       }
       window.onload = function addInfo(){
         document.getElementById("Username").innerHTML="Example";
-        document.getElementById("Score").innerHTML="Total score: "+"0";
+        document.getElementById("Score").innerHTML="Total score: "+"0"; // Add score pulling here
         for (var i = wordsFound.length-1; i >= 0; i--) {
           if (wordsFound[i]) {
             document.getElementById(wordsToFind[i]).style.display="block";
             wordsToFind.splice(i,1);
           }
+        }
+        if (wordsToFind.length == 0) {
+          var allBoxes = document.getElementsByClassName("col-sm-3");
+          for (i = 0; i < allBoxes.length; i++) {
+            allBoxes[i].style.backgroundColor = "#3CB371";
+          }
+          document.getElementById('userGuess').placeholder = 'Complete!';
+          document.getElementById('userGuess').setAttribute("disabled", true);
+          document.getElementById('guessButton').setAttribute("disabled", true);
         }
         document.getElementById("basic-addon1").textContent="Words Remaining: ".concat((wordsToFind.length.toString()));
       }
