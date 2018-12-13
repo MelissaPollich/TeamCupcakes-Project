@@ -1,7 +1,7 @@
 # TeamCupcakes-Project
 Game title: Word Finder
 
-This project is about the never ending search for words. Just kidding, that's too deep and philosophical. Winder Finder is a word search game that contains three word searches that you, the user can play.
+This project is about the never ending search for words. Just kidding, that's too deep and philosophical. Word Finder is a word search game that contains three word searches that you, the user can play.
 
 Launch the login.html file. If you are new to this game, click on the "Sign Up" button to create a profile (If you already have an account, then just input your username and password into the respective text fields and click the "Login" button). Once you have created a profile you will be taken to the login page where you will be prompted for your username and password.
 
