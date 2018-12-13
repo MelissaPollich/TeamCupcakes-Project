@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+      function validateLogin() {
+        var x = document.forms['login']['usernameInput'].value; // Username Check
+        var text = '';
+        var toRet = true;
+        if (x == "") {
+          text = 'Please enter a username';
+          document.getElementById('nameError').innerHTML = text;
+          toRet = false;
+        } else {
+          document.getElementById('nameError').innerHTML = text;
+        }
+        text = '';
+        x = document.forms['login']['passwordInput'].value;
+        if (x == "") {
+          text = 'Please enter a password';
+          document.getElementById('passError').innerHTML = text;
+          toRet = false;
+        } else {
+          document.getElementById('passError').innerHTML = '';
+        }
+        return toRet;
+      }
+    </script>
+    <title>Login Screen</title>
+  </head>
+  <body>
+
+    <h1 class="text-center">Sign in</h1><br>
+
+    <% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+    <% } %>
+    <% if (messages.success) { %>
+        <p style="color:green"><%- messages.success %></p>
+    <% } %>
+
+    <form action="/" method="post" name="form1">
+      <div id="username">
+        <strong style="margin-left: 25%;">Username</strong><br>
+        <input style="margin-left: 25%; padding: 10px; width: 60%" type="text" name="username" id="name" value="<%= username %>"  class="form-control" aria-describedby="usernameHelp" placeholder="Enter username">
+        <p id="nameError" style="color: red; margin-bottom: 30px; margin-left: 25%"></p>
+      </div>
+      <div id="password">
+        <strong style="margin-left: 25%;">Password</strong><br>
+        <input style="margin-left: 25%; padding: 10px; width: 60%" type="password" name="password" value="<%= password %>" class="form-control" aria-describedby="passwordHelp" placeholder="Enter password">
+        <p id="passError" style="color: red; margin-left: 25%"></p>
+      </div>
+      <input style="margin-left: 25%" type="submit" class="btn btn-info" value="Login">
+      <a href="/game/sign_up" class="btn btn-info" role="button">Sign Up</a>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
