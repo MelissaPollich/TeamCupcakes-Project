@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
+var sessionStorage = require('sessionstorage');
 
+app.use(express.static('public'));
+
+
+app.set('view engine', 'ejs');
 
 var expressValidator = require('express-validator');
 app.use(expressValidator());
@@ -30,10 +35,10 @@ app.use(session({
 }));
 app.use(flash());
 
-var index = require('./routes/index');
-var store = require('./routes/store');
-app.use('/', index);
-app.use('/store', store);
+var login = require('./routes/login');
+var game = require('./routes/game');
+app.use('/', login);
+app.use('/game', game);
 
 var port = 4000;
 app.listen(port, function () {

@@ -18,6 +18,11 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.0",
-    "method-override": "^3.0.0"
+    "method-override": "^3.0.0",
+    "pg-promise": "^8.5.3",
+    "sessionstorage": "^0.1.0"
+  },
+  "devDependencies": {
+    "mock-local-storage": "^1.1.7"
   }
 }
